@@ -13,21 +13,6 @@ You will play with Docker Enterprise
 > **Difficulty**: Intermediate
 >
 > **Time**: Approximately 90 minutes
->
-> **Tasks**:
->
-> * [Who am i](#who-am-i)
-> * [Document conventions](#document-conventions)
-> * [Abbreviations](#abbreviations)
-> * [Prerequisites](#prerequisites)
-> * [Understanding the Play With Docker Interface](#understanding-the-play-with-docker-interface)
->   * [1. Console Access](#1-console-access)
->   * [2. Access to your Universal Control Plane (UCP) and Docker Trusted Registry (DTR) servers](#2-access-to-your-universal-control-plane-ucp-and-docker-trusted-registry-dtr-servers)
->   * [3. Session Information](#3-session-information)
-> * [Introduction](#introduction)
-> * [Task 1 Accessing PWD](#task-1---accessing-pwd)
->   * [Task 1.1 Set Up Environment Variables](#task-11---set-up-environment-variables)
-> * [Task 2 Enable Docker Image Scanning](#task-2---enable-docker-image-scanning)
 
 ## Document conventions
 
@@ -97,7 +82,8 @@ We are going to use `worker3` for **ALL** our command line work. Click on `worke
 Now we need to setup a few variables. We need to create `DTR_URL` and `DTR_USERNAME`. But the easiest way is to clone the Workshop Repo and run script.
 
 ```bash
-git clone https://github.com/clemenko/dc19_supply_chain.git
+git clone https://github.com/clemenko/simple_workshop.git
+cd simple_workshop
 ```
 
 Once cloned, now we can run the `var_setup.sh` script.
@@ -107,6 +93,15 @@ source dc19_supply_chain/scripts/var_setup.sh
 ```
 
 Now your PWD environment variables are setup. We will use the variables for some scripting.
+
+### Task 1.2 - Client Bundle
+
+For a better understanding of Kubernetes we will need to download a client bundle.
+
+```bash
+./scripts/client_bundle.sh
+eval "$(<env.sh)"
+```
 
 ## Task 2 - Enable Docker Image Scanning
 
@@ -125,3 +120,9 @@ Before we create the repositories, let's start with enabling the Docker Image Sc
 
 3. Select `Enable Scanning`. Leave it in `Online` mode and select `Enable`. Press the button `Enable Online Scanning`. The CVE database will start downloading. This can take a few minutes. Please be patient for it to complete.
     ![enable_scan](img/scanning_enable.jpg)
+
+
+## Notes
+
+* [Prometheus](https://github.com/clemenko/prometheus/)
+* [Compose all the things](https://github.com/clemenko/compose_files/blob/master/compose_all_the_things.yml)
