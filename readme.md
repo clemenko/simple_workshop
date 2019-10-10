@@ -89,7 +89,7 @@ cd simple_workshop
 Once cloned, now we can run the `var_setup.sh` script.
 
 ```bash
-source dc19_supply_chain/scripts/var_setup.sh
+source ./scripts/var_setup.sh
 ```
 
 Now your PWD environment variables are setup. We will use the variables for some scripting.
